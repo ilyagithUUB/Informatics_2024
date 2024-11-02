@@ -5,10 +5,10 @@ import (
 )
 
 type Character struct {
-	Name   string  // Имя персонажа
-	Class  string  // Класс персонажа (например, "Воин", "Маг", "Лучник")
-	Level  int     // Уровень персонажа
-	Health float64 // Здоровье персонажа
+	Name   string
+	Class  string
+	Level  int
+	Health float64
 }
 
 func (c *Character) LevelUp() {
