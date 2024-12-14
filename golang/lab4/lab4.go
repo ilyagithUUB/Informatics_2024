@@ -9,31 +9,33 @@ func calculateY(x float64) float64 {
 	return math.Pow(math.Asin(x), 2) + math.Pow(math.Acos(x), 4)
 }
 
-func TaskA() {
-	fmt.Println("Задача A:")
-	for x := 0.26; x <= 0.66; x += 0.08 {
+func TaskA(xn, xk, deltax float64) [][]float64 {
+	var taskA [][]float64
+	for x := xn; x <= xk; x += deltax {
 		y := calculateY(x)
-		fmt.Printf("x = %.2f, y = %.6f\n", x, y)
+		taskA = append(taskA, []float64{x, y})
 	}
-}
-func TaskB() {
-	fmt.Println("\nЗадача B:")
-	xValues := []float64{0.1, 0.35, 0.4, 0.55, 0.6}
-	for _, x := range xValues {
-		y := calculateY(x)
-		fmt.Printf("x = %.2f, y = %.6f\n", x, y)
-	}
+	return taskA
 }
 
-func RunLab4(){
-	resultsA := TaskA(0.26, 0.66, 0.08)
-  for _, result := range resultsA {
-    fmt.Printf("x = %.2f, y = %.6f\n", x, y)
-  }
-
-  arr := []float64{0.1, 0.35, 0.4, 0.55, 0.6}
-  resultsB := TaskB( 0.26, 0.66, arr)
-  for _, result := range resultsB {
-    fmt.Printf("x = %.2f, y = %.6f\n", x, y)
+func TaskB(values []float64)[][]float64 {
+	var taskB [][]float64
+	for _, x := range values {
+		y := calculateY(x)
+		taskB = append(taskB, []float64{x, y})
+	}
+	return taskB
 }
+
+func RunLab4() {
+	resultsA := TaskA(0.2, 0.95, 0.15)
+	for _, result := range resultsA {
+		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
+	}
+
+	arr := []float64{0.1, 0.35, 0.4, 0.55, 0.6}
+	resultsB := TaskB(arr)
+	for _, result := range resultsB {
+		fmt.Printf("x: %.2f, y: %.2f\n", result[0], result[1])
+	}
 }
