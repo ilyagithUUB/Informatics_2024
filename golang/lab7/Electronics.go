@@ -25,6 +25,6 @@ func (e *Electronics) ApplyDiscount(discount float64) {
 	e.Price -= e.Price * discount
 }
 
-func (e *Electronics) GetDescription() string {
+func (e *Electronics) GetInfo() string {
 	return fmt.Sprintf("Электроника: %s, Бренд: %s, Цена: %.2f", e.Name, e.Brand, e.Price)
 }
